@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc version="1.1">
+  <web>ReviewPages</web>
+  <name>Translations</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <creator>xwiki:XWiki.Admin</creator>
+  <creationDate>1419970434000</creationDate>
+  <parent>ReviewPages.WebHome</parent>
+  <author>xwiki:XWiki.Admin</author>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <date>1420127244000</date>
+  <contentUpdateDate>1420127244000</contentUpdateDate>
+  <version>1.1</version>
+  <title>Translations</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>true</hidden>
+  <content>ReviewPages.application=Review Pages
+ReviewPages.generic.errormessage=Internal Server Error
+
+# livetable
+ReviewPages.ReviewData.doc.title=Page title
+ReviewPages.ReviewData.doc.name=Page
+ReviewPages.ReviewData.doc.space=Space
+ReviewPages.ReviewData.doc.date=Modified
+ReviewPages.ReviewData.doc.author=Author
+ReviewPages.ReviewData.nextReviewDate=Next Review
+ReviewPages.ReviewData.reviewDate=Last Review
+ReviewPages.ReviewData.lastReviewer=Last Reviewer
+ReviewPages.ReviewData._actions=Actions
+ReviewPages.ReviewData._actions.view=View
+ReviewPages.ReviewData._actions.review=Review
+ReviewPages.ReviewData._actions.remove=Remove
+ReviewPages.ReviewData._actions.remove.label=Remove from review
+ReviewPages.ReviewData.emptyvalue=N/A
+
+#the review dialog
+ReviewPages.dialog.title=Review this page
+ReviewPages.dialog.noDocumentFound=Document to review gone.
+ReviewPages.dialog.noReviewFound=No Review data found for this document.
+ReviewPages.dialog.newReviewDateLabel=Date of next Review
+ReviewPages.dialog.submitReview=Set next review
+ReviewPages.dialog.cancel=Cancel
+ReviewPages.dialog.saveVersionSummary=Reviewed
+ReviewPages.dialog.confirmRemove=Do you really want to remove &amp;#171;{0}&amp;#187; from the review process?
+
+
+# the add to review form
+ReviewPages.AddPage.title=Add Page to review process
+#ReviewPages.AddPage.space.label=Space
+ReviewPages.AddPage.page.label=Document
+ReviewPages.AddPage.nextReviewDate.label=First review date
+##ReviewPages.AddPage.nextReviewDate.title=The Date before this page should be reviewed
+ReviewPages.AddPage.button.label=Add to Review
+ReviewPages.AddPage.page.error.empty=Document must not be empty
+ReviewPages.AddPage.page.error.missing=This document does not exist
+ReviewPages.AddPage.page.error.alreadyReviewed=This document is already under review
+ReviewPages.AddPage.nextReviewDate.error.empty=Date must not be empty
+ReviewPages.AddPage.nextReviewDate.error.format=Date format not supported
+ReviewPages.AddPage.saveVersionSummary=Added to Review
+
+# messages from removing pages
+ReviewPages.RemovePage.page.error.alreadyRemoved=This document is not under review
+ReviewPages.RemovePage.saveVersionSummary=Removed from Review</content>
+  <object>
+    <name>ReviewPages.Translations</name>
+    <number>0</number>
+    <className>XWiki.TranslationDocumentClass</className>
+    <guid>493df327-6754-4bff-b42e-0ecb0d748a94</guid>
+    <class>
+      <name>XWiki.TranslationDocumentClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <scope>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>scope</name>
+        <number>1</number>
+        <prettyName>Scope</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>GLOBAL|WIKI|USER|ON_DEMAND</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </scope>
+    </class>
+    <property>
+      <scope>WIKI</scope>
+    </property>
+  </object>
+</xwikidoc>
