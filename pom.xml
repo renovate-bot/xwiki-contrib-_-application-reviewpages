@@ -46,6 +46,10 @@
     <tag>HEAD</tag>
   </scm>
   <url>http://extensions.xwiki.org/xwiki/bin/view/Extension/Review+Pages+Application</url>
+  <issueManagement>
+    <system>jira</system>
+    <url>http://jira.xwiki.org/jira/browse/REVPAGE</url>
+  </issueManagement>
   <developers>
     <developer>
       <id>ClemensRobbenhaar</id>

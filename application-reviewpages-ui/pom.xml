@@ -29,7 +29,7 @@
   </parent>
   <artifactId>application-reviewpages-ui</artifactId>
   <name>Review Pages Application - UI</name>
-  <description>Helps you reminding about pages that needs to be updated</description>
+  <description>This application allows to maintain list of wiki pages that needs to be reviewed from time to time, together with a date for the next review for each page.</description>
   <packaging>xar</packaging>
   <properties>
     <!-- Don't run CLIRR here since there's no Java code. -->
