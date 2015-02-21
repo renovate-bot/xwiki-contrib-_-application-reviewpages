@@ -92,5 +92,5 @@
 &lt;/form&gt;
 {{/html}}
 #end
-{{/velocity}}</content>
+#set($docextras=[]){{/velocity}}</content>
 </xwikidoc>
