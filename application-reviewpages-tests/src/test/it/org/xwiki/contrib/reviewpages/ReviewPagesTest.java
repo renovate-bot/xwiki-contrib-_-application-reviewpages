@@ -22,7 +22,7 @@ package org.xwiki.contrib.reviewpages;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-// import org.junit.Rule;
+
 import org.xwiki.panels.test.po.ApplicationsPanel;
 import org.xwiki.test.ui.AbstractTest;
 import org.xwiki.test.ui.SuperAdminAuthenticationRule;
