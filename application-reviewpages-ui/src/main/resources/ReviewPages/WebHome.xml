@@ -74,9 +74,6 @@
 #if($hasEdit)
 === $services.localization.render("ReviewPages.AddPage.title") ===
 
-## XXX and here we need programming rights just to get the date format
-## maybe try to create an empty ReviewDate object instead ...
-#set($format = $xwiki.getDocument('ReviewPages.ReviewData').getxWikiClass().get('nextReviewDate').getPropertyClass().getDateFormat())
 
 {{html wiki="true"}}
 &lt;form id="addReviewPage" action="$xwiki.getURL('ReviewPages.AddScript')"&gt;
@@ -88,7 +85,7 @@
 ; &lt;label for="addReviewPage_page"&gt;$services.localization.render('ReviewPages.AddPage.page.label')&lt;/label&gt;
 : &lt;input type="text" name="page" id="addReviewPage_page" class="suggestDocuments" /&gt;
 ; &lt;label for="addReviewPage_nextReviewDate"&gt;$services.localization.render('ReviewPages.AddPage.nextReviewDate.label') &lt;/label&gt;
-: &lt;input type="text" name="nextReviewDate" id="addReviewPage_nextReviewDate" title="$escapetool.html($format)" class="datetime" /&gt;
+: &lt;input type="text" name="nextReviewDate" id="addReviewPage_nextReviewDate" /&gt;
 
 &lt;input type="submit" class="button" name="add" id="addReviewPage-button" value="$services.localization.render('ReviewPages.AddPage.button.label')" /&gt;
 &lt;/div&gt;
@@ -96,131 +93,4 @@
 {{/html}}
 #end
 {{/velocity}}</content>
-  <object>
-    <name>ReviewPages.WebHome</name>
-    <number>0</number>
-    <className>XWiki.RequiredRightClass</className>
-    <guid>c9de0739-817f-49c5-ac54-45a5ee31d514</guid>
-    <class>
-      <name>XWiki.RequiredRightClass</name>
-      <customClass/>
-      <customMapping/>
-      <defaultViewSheet/>
-      <defaultEditSheet/>
-      <defaultWeb/>
-      <nameField/>
-      <validationScript/>
-      <level>
-        <cache>0</cache>
-        <disabled>0</disabled>
-        <displayType>select</displayType>
-        <multiSelect>0</multiSelect>
-        <name>level</name>
-        <number>1</number>
-        <picker>0</picker>
-        <prettyName>level</prettyName>
-        <relationalStorage>0</relationalStorage>
-        <separator> </separator>
-        <separators> ,|</separators>
-        <size>1</size>
-        <sort>none</sort>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <values>edit|programming</values>
-        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-      </level>
-    </class>
-    <property>
-      <level>programming</level>
-    </property>
-  </object>
-  <object>
-    <name>ReviewPages.WebHome</name>
-    <number>0</number>
-    <className>XWiki.UIExtensionClass</className>
-    <guid>fc0ce6f0-31dd-441c-b717-6e3c5357a9fc</guid>
-    <class>
-      <name>XWiki.UIExtensionClass</name>
-      <customClass/>
-      <customMapping/>
-      <defaultViewSheet/>
-      <defaultEditSheet/>
-      <defaultWeb/>
-      <nameField/>
-      <validationScript/>
-      <content>
-        <disabled>0</disabled>
-        <name>content</name>
-        <number>3</number>
-        <prettyName>Extension Content</prettyName>
-        <rows>10</rows>
-        <size>40</size>
-        <unmodifiable>0</unmodifiable>
-        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-      </content>
-      <extensionPointId>
-        <disabled>0</disabled>
-        <name>extensionPointId</name>
-        <number>1</number>
-        <prettyName>Extension Point ID</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </extensionPointId>
-      <name>
-        <disabled>0</disabled>
-        <name>name</name>
-        <number>2</number>
-        <prettyName>Extension ID</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </name>
-      <parameters>
-        <disabled>0</disabled>
-        <name>parameters</name>
-        <number>4</number>
-        <prettyName>Extension Parameters</prettyName>
-        <rows>10</rows>
-        <size>40</size>
-        <unmodifiable>0</unmodifiable>
-        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-      </parameters>
-      <scope>
-        <cache>0</cache>
-        <disabled>0</disabled>
-        <displayType>select</displayType>
-        <multiSelect>0</multiSelect>
-        <name>scope</name>
-        <number>5</number>
-        <prettyName>Extension Scope</prettyName>
-        <relationalStorage>0</relationalStorage>
-        <separator> </separator>
-        <separators> ,|</separators>
-        <size>1</size>
-        <unmodifiable>0</unmodifiable>
-        <values>wiki=Current Wiki|user=Current User|global=Global</values>
-        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-      </scope>
-    </class>
-    <property>
-      <content/>
-    </property>
-    <property>
-      <extensionPointId>org.xwiki.platform.panels.Applications</extensionPointId>
-    </property>
-    <property>
-      <name>org.xwiki.contrib.applications.ReviewPagesApplication</name>
-    </property>
-    <property>
-      <parameters>#set ($discard = $services.localization.use('document', 'ReviewPages.Translations'))
-label=$services.localization.render('ReviewPages.application')
-target=ReviewPages.WebHome
-icon=icon:accept</parameters>
-    </property>
-    <property>
-      <scope>wiki</scope>
-    </property>
-  </object>
 </xwikidoc>

@@ -333,7 +333,17 @@ ReviewPages.removeReviewDialog = function(pageFullName, pageName) {
        yesButtonText: "$services.localization.render('yes')",
         noButtonText: "$services.localization.render('no')"
   });
-}</code>
+};
+
+
+(function(){
+  function initDatePicker() {
+     var dateFormat = "$escapetool.javascript($xwiki.getDocument('ReviewPages.ReviewData').getxWikiClass().get('nextReviewDate').getPropertyClass().getDateFormat())";
+     new XWiki.DateTimePicker($('addReviewPage_nextReviewDate').addClassName('datetime'), dateFormat)
+  }
+  (XWiki &amp;&amp; XWiki.domIsLoaded &amp;&amp; initDatePicker()) || document.observe("xwiki:dom:loaded", initDatePicker);
+})()
+</code>
     </property>
     <property>
       <name>Livetable helpers</name>
@@ -350,6 +360,45 @@ ReviewPages.removeReviewDialog = function(pageFullName, pageName) {
     <number>0</number>
     <className>XWiki.RequiredRightClass</className>
     <guid>c3abdc52-9b13-4605-942d-67361cd40cff</guid>
+    <class>
+      <name>XWiki.RequiredRightClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <level>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>level</name>
+        <number>1</number>
+        <picker>0</picker>
+        <prettyName>level</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <sort>none</sort>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <values>edit|programming</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </level>
+    </class>
+    <property>
+      <level>programming</level>
+    </property>
+  </object>
+  <object>
+    <name>ReviewPages.Script</name>
+    <number>1</number>
+    <className>XWiki.RequiredRightClass</className>
+    <guid>0fa88d43-2211-437b-aebb-68a74b00e02d</guid>
     <class>
       <name>XWiki.RequiredRightClass</name>
       <customClass/>
@@ -482,6 +531,94 @@ div.calendar_date_select {
     </property>
     <property>
       <use>onDemand</use>
+    </property>
+  </object>
+  <object>
+    <name>ReviewPages.Script</name>
+    <number>0</number>
+    <className>XWiki.UIExtensionClass</className>
+    <guid>bdf863e6-3261-4a39-9e77-5969c1b6b6c4</guid>
+    <class>
+      <name>XWiki.UIExtensionClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <content>
+        <disabled>0</disabled>
+        <name>content</name>
+        <number>3</number>
+        <prettyName>Extension Content</prettyName>
+        <rows>10</rows>
+        <size>40</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </content>
+      <extensionPointId>
+        <disabled>0</disabled>
+        <name>extensionPointId</name>
+        <number>1</number>
+        <prettyName>Extension Point ID</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </extensionPointId>
+      <name>
+        <disabled>0</disabled>
+        <name>name</name>
+        <number>2</number>
+        <prettyName>Extension ID</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </name>
+      <parameters>
+        <disabled>0</disabled>
+        <name>parameters</name>
+        <number>4</number>
+        <prettyName>Extension Parameters</prettyName>
+        <rows>10</rows>
+        <size>40</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </parameters>
+      <scope>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>scope</name>
+        <number>5</number>
+        <prettyName>Extension Scope</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>wiki=Current Wiki|user=Current User|global=Global</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </scope>
+    </class>
+    <property>
+      <content/>
+    </property>
+    <property>
+      <extensionPointId>org.xwiki.platform.panels.Applications</extensionPointId>
+    </property>
+    <property>
+      <name>org.xwiki.contrib.applications.ReviewPagesApplication</name>
+    </property>
+    <property>
+      <parameters>#set ($discard = $services.localization.use('document', 'ReviewPages.Translations'))
+label=$services.localization.render('ReviewPages.application')
+target=ReviewPages.WebHome
+icon=icon:accept</parameters>
+    </property>
+    <property>
+      <scope>wiki</scope>
     </property>
   </object>
 </xwikidoc>
