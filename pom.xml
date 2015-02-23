@@ -29,7 +29,7 @@
   </parent>
   <groupId>org.xwiki.contrib</groupId>
   <artifactId>application-reviewpages</artifactId>
-  <version>0.3-SNAPSHOT</version>
+  <version>0.2-SNAPSHOT</version>
   <name>Review Pages Application - Parent POM</name>
   <packaging>pom</packaging>
   <properties>
@@ -62,11 +62,6 @@
       <name>XWiki Staging Repository</name>
       <url>http://nexus.xwiki.org/nexus/service/local/staging/deploy/maven2/</url>
     </repository>
-    <snapshotRepository>
-      <id>nexus.xwiki.org</id>
-      <name>XWiki Maven Development Repository for Snapshots</name>
-      <url>http://nexus.xwiki.org/nexus/content/repositories/snapshots/</url>
-    </snapshotRepository>
   </distributionManagement>
   <build>
     <extensions>
