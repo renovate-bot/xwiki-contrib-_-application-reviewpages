@@ -396,45 +396,6 @@ ReviewPages.removeReviewDialog = function(pageFullName, pageName) {
   </object>
   <object>
     <name>ReviewPages.Script</name>
-    <number>1</number>
-    <className>XWiki.RequiredRightClass</className>
-    <guid>0fa88d43-2211-437b-aebb-68a74b00e02d</guid>
-    <class>
-      <name>XWiki.RequiredRightClass</name>
-      <customClass/>
-      <customMapping/>
-      <defaultViewSheet/>
-      <defaultEditSheet/>
-      <defaultWeb/>
-      <nameField/>
-      <validationScript/>
-      <level>
-        <cache>0</cache>
-        <disabled>0</disabled>
-        <displayType>select</displayType>
-        <multiSelect>0</multiSelect>
-        <name>level</name>
-        <number>1</number>
-        <picker>0</picker>
-        <prettyName>level</prettyName>
-        <relationalStorage>0</relationalStorage>
-        <separator> </separator>
-        <separators> ,|</separators>
-        <size>1</size>
-        <sort>none</sort>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <values>edit|programming</values>
-        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-      </level>
-    </class>
-    <property>
-      <level>programming</level>
-    </property>
-  </object>
-  <object>
-    <name>ReviewPages.Script</name>
     <number>0</number>
     <className>XWiki.StyleSheetExtension</className>
     <guid>3810e50c-e851-4396-a068-157f8ea5e8aa</guid>
