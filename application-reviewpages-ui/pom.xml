@@ -88,10 +88,6 @@
       <plugin>
         <groupId>org.xwiki.commons</groupId>
         <artifactId>xwiki-commons-tool-xar-plugin</artifactId>
-        <!-- need to set an explicit version as we do not want the whole extension to depend on XWiki 10.x
-           but want to use the new page-type feature for recent installs
-           see https://jira.xwiki.org/browse/REVPAGE-6 -->
-        <version>10.4</version>
         <configuration>
           <skip>true</skip>
           <entries>
