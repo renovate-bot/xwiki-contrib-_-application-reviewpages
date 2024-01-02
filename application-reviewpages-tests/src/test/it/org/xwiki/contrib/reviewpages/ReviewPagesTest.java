@@ -35,7 +35,7 @@ public class ReviewPagesTest extends AbstractTest
 {
 
     @Rule
-    public SuperAdminAuthenticationRule authenticationRule = new SuperAdminAuthenticationRule(getUtil(), getDriver());
+    public SuperAdminAuthenticationRule authenticationRule = new SuperAdminAuthenticationRule(getUtil());
     
 
     @Test
