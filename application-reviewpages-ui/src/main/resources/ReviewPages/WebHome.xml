@@ -20,7 +20,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc version="1.1">
+<xwikidoc version="1.4" reference="ReviewPages.WebHome" locale="">
   <web>ReviewPages</web>
   <name>WebHome</name>
   <language/>
@@ -38,34 +38,44 @@
   <hidden>true</hidden>
   <content>{{velocity}}
 #set($discard = $services.localization.use('document', 'ReviewPages.Translations'))
-#set($discard = $xwiki.ssfx.use('uicomponents/widgets/datepicker/calendarDateSelect.css', true))
-#set($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/calendarDateSelect.js', true))
-#set($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/simpleDateFormat.js', true))
-#set($discard = $xwiki.ssfx.use('uicomponents/widgets/datepicker/dateTimePicker.css', true))
-#set($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/dateTimePicker.js'))
 #set($discard = $xwiki.ssfx.use('uicomponents/widgets/validation/livevalidation.css', true))
-#set($discard = $xwiki.jsx.use("ReviewPages.Script", {'defer': false, 'minify': false}))
-#set($discard = $xwiki.jsx.use("ReviewPages.AddScript", {'defer': false, 'minify': false}))
+#set($discard = $xwiki.jsx.use("ReviewPages.Script"))
+#set($discard = $xwiki.jsx.use("ReviewPages.AddScript"))
 #set($discard = $xwiki.ssx.use("ReviewPages.Script"))
 #set($options = {
   "className":"ReviewPages.ReviewData",
   "translationPrefix" : "ReviewPages.ReviewData.",
   "selectedColumn":"nextReviewDate",
-  "defaultOrder" :"asc",
-  "callback" : "ReviewPages.displayLiveTableRow"
+  "defaultOrder" :"asc"
 })
-
+#set($reviewDateFormat = $xwiki.getDocument('ReviewPages.ReviewData').getxWikiClass().get('nextReviewDate').getPropertyClass().getDateFormat())
 #set($columns = [ "doc.name","doc.space","doc.date","doc.author","nextReviewDate","lastReviewer","reviewDate","_actions"])
 #set($columnProperties = {
   "doc.name"  : { "type" : "text", "link" : "view" },
   "doc.space" : { "type" : "text" },
   "doc.date"  : { "type" : "date" },
   "doc.author": { "type" : "text", "link" : "field" },
-  "nextReviewDate"  : { "type" : "date" },
-  "lastReviewer": { "html": true, "type" : "list", "link" : "field", "filterable" : false},
+  "nextReviewDate"  : { "type" : "date", "html" : true },
+  "lastReviewer": { "html": true, "type" : "list", "link" : "field", "filterable" : false },
   "reviewDate"  : { "type" : "date" },
-  "_actions": {'html': true, 'sortable': false, 'actions': []}
-} )
+  "_actions": { 'html': true, 'sortable': false, 'actions': [ 'view',
+    {
+      'id': 'review',
+      'label': "$services.localization.render('ReviewPages.ReviewData._actions.review')",
+      'icon': 'check',
+      'async': true,
+      'callback' : 'ReviewPages.reviewEntry(i)'
+    },
+    {
+      'id': 'remove',
+      'label': "$services.localization.render('ReviewPages.ReviewData._actions.remove')",
+      'title' : "$services.localization.render('ReviewPages.ReviewData._actions.remove.label')",
+      'icon': 'delete',
+      'async': true,
+      'callback' : 'ReviewPages.removeReviewEntry(i)'
+    }
+  ]}
+})
 #livetable("review" $columns $columnProperties $options)
 
 #if($hasEdit)
@@ -74,20 +84,22 @@
 
 {{html wiki="true"}}
 &lt;form id="addReviewPage" action="$xwiki.getURL('ReviewPages.AddScript')"&gt;
-&lt;div class="xform"&gt;
-##; &lt;label for="addReviewPage_space"&gt;$services.localization.render('ReviewPages.AddPage.space.label')&lt;/label&gt;
-##: &lt;input type="text" name="space" id="addReviewPage_space" class="suggestSpaces" /&gt;
-##; &lt;label for="addReviewPage_page"&gt;$services.localization.render('ReviewPages.AddPage.page.label')&lt;/label&gt;
-##: &lt;input type="text" name="page" id="addReviewPage_page" class="suggestDocs" /&gt;
+&lt;div class="xform half"&gt;
 ; &lt;label for="addReviewPage_page"&gt;$services.localization.render('ReviewPages.AddPage.page.label')&lt;/label&gt;
 : &lt;input type="text" name="page" id="addReviewPage_page" class="suggestDocuments" /&gt;
 ; &lt;label for="addReviewPage_nextReviewDate"&gt;$services.localization.render('ReviewPages.AddPage.nextReviewDate.label') &lt;/label&gt;
-: &lt;input type="text" name="nextReviewDate" id="addReviewPage_nextReviewDate" /&gt;
+#set ($dateTimePickerParams = {
+        'id': 'addReviewPage_nextReviewDate',
+        'name': 'nextReviewDate',
+        'data-format': $reviewDateFormat,
+        'placeholder': ''
+      })
+: #dateTimePicker($dateTimePickerParams)
+## &lt;input type="text" name="nextReviewDate" id="addReviewPage_nextReviewDate" /&gt;
 
 &lt;input type="submit" class="button" name="add" id="addReviewPage-button" value="$services.localization.render('ReviewPages.AddPage.button.label')" /&gt;
 &lt;/div&gt;
 &lt;/form&gt;
 {{/html}}
-#end
-#set($docextras=[]){{/velocity}}</content>
+#end{{/velocity}}</content>
 </xwikidoc>

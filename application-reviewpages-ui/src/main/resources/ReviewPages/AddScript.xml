@@ -20,7 +20,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc>
+<xwikidoc version="1.4" reference="ReviewPages.AddScript" locale="">
   <web>ReviewPages</web>
   <name>AddScript</name>
   <language/>
@@ -29,16 +29,51 @@
   <parent>ReviewPages.WebHome</parent>
   <creator>xwiki:XWiki.Admin</creator>
   <author>xwiki:XWiki.Admin</author>
-  <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <version>1.1</version>
   <title>AddScript</title>
-  <defaultTemplate/>
-  <validationScript/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
+  <content>{{velocity output="false"}}
+#if("$!{request.outputSyntax}" == 'plain')
+  $response.setContentType('application/json')
+#end
+#set($result={})
+#set($errors={})
+#if("$!request.page" == "")
+ $errors.put('page', $services.localization.render('ReviewPages.AddPage.page.error.empty'));
+#else
+  #set($reDoc = $xwiki.getDocument($request.page))
+  #if($reDoc.isNew())
+    $errors.put('page', $services.localization.render('ReviewPages.AddPage.page.error.missing'));
+  #else
+    #if($reDoc.getObjectNumbers('ReviewPages.ReviewData') != 0)
+      $errors.put('page',$services.localization.render('ReviewPages.AddPage.page.error.alreadyReviewed'));
+    #end
+  #end
+#end
+#if("$!request.nextReviewDate" == "")
+  $errors.put('nextReviewDate', $services.localization.render('ReviewPages.AddPage.nextReviewDate.error.empty'));
+#else
+  #set($nextReviewDate = $request.nextReviewDate)
+  $reDoc.createNewObject('ReviewPages.ReviewData')
+  $reDoc.use('ReviewPages.ReviewData')
+  $reDoc.set('nextReviewDate', $nextReviewDate)
+  #if("$!{reDoc.get('nextReviewDate')}" == "")
+    $errors.put('nextReviewDate', $services.localization.render('ReviewPages.AddPage.nextReviewDate.error.format'));
+  #else
+   $reDoc.save($services.localization.render('ReviewPages.AddPage.saveVersionSummary'))
+  #end
+#end
+#if(!$errors.isEmpty())
+$result.put('errors',$errors)
+#end
+{{/velocity}}
+{{velocity}}
+$jsontool.serialize($result)
+{{/velocity}}</content>
   <object>
     <class>
       <name>XWiki.JavaScriptExtension</name>
@@ -119,7 +154,7 @@
       <cache>forbid</cache>
     </property>
     <property>
-      <code>(function() {
+      <code>require(['reviewpages'], function(ReviewPages) {
 
   function init() {
 
@@ -165,7 +200,7 @@
   (XWiki.domIsLoaded &amp;&amp; init())
   || document.observe("xwiki:dom:loaded", init);
 
-}())</code>
+})</code>
     </property>
     <property>
       <name>add form helpers</name>
@@ -216,42 +251,4 @@
       <level>programming</level>
     </property>
   </object>
-  <content>{{velocity output="false"}}
-#if("$!{request.outputSyntax}" == 'plain')
-  $response.setContentType('application/json')
-#end
-#set($result={})
-#set($errors={})
-#if("$!request.page" == "")
- $errors.put('page', $services.localization.render('ReviewPages.AddPage.page.error.empty'));
-#else
-  #set($reDoc = $xwiki.getDocument($request.page))
-  #if($reDoc.isNew())
-    $errors.put('page', $services.localization.render('ReviewPages.AddPage.page.error.missing'));
-  #else
-    #if($reDoc.getObjectNumbers('ReviewPages.ReviewData') != 0)
-      $errors.put('page',$services.localization.render('ReviewPages.AddPage.page.error.alreadyReviewed'));
-    #end 
-  #end
-#end
-#if("$!request.nextReviewDate" == "")
-  $errors.put('nextReviewDate', $services.localization.render('ReviewPages.AddPage.nextReviewDate.error.empty'));
-#else
-  #set($nextReviewDate = $request.nextReviewDate)
-  $reDoc.createNewObject('ReviewPages.ReviewData')
-  $reDoc.use('ReviewPages.ReviewData')
-  $reDoc.set('nextReviewDate', $nextReviewDate)
-  #if("$!{reDoc.get('nextReviewDate')}" == "") 
-    $errors.put('nextReviewDate', $services.localization.render('ReviewPages.AddPage.nextReviewDate.error.format'));
-  #else
-   $reDoc.save($services.localization.render('ReviewPages.AddPage.saveVersionSummary'))
-  #end
-#end
-#if(!$errors.isEmpty())
-$result.put('errors',$errors)
-#end
-{{/velocity}}
-{{velocity}}
-$jsontool.serialize($result)
-{{/velocity}}</content>
 </xwikidoc>
