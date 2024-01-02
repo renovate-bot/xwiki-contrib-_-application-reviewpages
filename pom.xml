@@ -29,7 +29,7 @@
   </parent>
   <groupId>org.xwiki.contrib</groupId>
   <artifactId>application-reviewpages</artifactId>
-  <version>0.3-SNAPSHOT</version>
+  <version>0.3</version>
   <name>Review Pages Application - Parent POM</name>
   <packaging>pom</packaging>
   <properties>
@@ -43,7 +43,7 @@
     <connection>scm:git:git://github.com/xwiki-contrib/application-reviewpages.git</connection>
     <developerConnection>scm:git:git@github.com:xwiki-contrib/application-reviewpages.git</developerConnection>
     <url>https://github.com/xwiki-contrib/application-reviewpages/tree/master/</url>
-    <tag>HEAD</tag>
+    <tag>application-reviewpages-0.3</tag>
   </scm>
   <url>http://extensions.xwiki.org/xwiki/bin/view/Extension/Review+Pages+Application</url>
   <issueManagement>
