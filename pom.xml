@@ -32,10 +32,6 @@
   <version>0.4-SNAPSHOT</version>
   <name>Review Pages Application - Parent POM</name>
   <packaging>pom</packaging>
-  <properties>
-    <platform.version>${commons.version}</platform.version>
-    <rendering.version>${commons.version}</rendering.version>
-  </properties>
   <modules>
     <module>application-reviewpages-ui</module>
   </modules>
@@ -56,37 +52,6 @@
       <name>Clemens Robbenhaar</name>
     </developer>
   </developers>
-  <distributionManagement>
-    <repository>
-      <id>xwiki-staging</id>
-      <name>XWiki Staging Repository</name>
-      <url>http://nexus.xwiki.org/nexus/service/local/staging/deploy/maven2/</url>
-    </repository>
-    <snapshotRepository>
-      <id>nexus.xwiki.org</id>
-      <name>XWiki Maven Development Repository for Snapshots</name>
-      <url>http://nexus.xwiki.org/nexus/content/repositories/snapshots/</url>
-    </snapshotRepository>
-  </distributionManagement>
-  <build>
-    <extensions>
-      <extension>
-        <groupId>org.xwiki.commons</groupId>
-        <artifactId>xwiki-commons-tool-xar-handlers</artifactId>
-        <version>${commons.version}</version>
-      </extension>
-    </extensions>
-    <plugins>
-      <plugin>
-        <groupId>org.xwiki.commons</groupId>
-        <artifactId>xwiki-commons-tool-xar-plugin</artifactId>
-        <version>${commons.version}</version>
-        <configuration>
-          <skip>true</skip>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
   <profiles>
     <profile>
       <id>integration-tests</id>
