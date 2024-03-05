@@ -32,6 +32,10 @@
   <version>0.4-SNAPSHOT</version>
   <name>Review Pages Application - Parent POM</name>
   <packaging>pom</packaging>
+  <properties>
+    <xwiki.release.jira.skip>false</xwiki.release.jira.skip>
+    <xwiki.issueManagement.jira.id>REVPAGE</xwiki.issueManagement.jira.id>
+  </properties>
   <modules>
     <module>application-reviewpages-ui</module>
   </modules>
@@ -42,14 +46,14 @@
     <tag>HEAD</tag>
   </scm>
   <url>https://extensions.xwiki.org/xwiki/bin/view/Extension/Review+Pages+Application</url>
-  <issueManagement>
-    <system>jira</system>
-    <url>http://jira.xwiki.org/jira/browse/REVPAGE</url>
-  </issueManagement>
   <developers>
     <developer>
       <id>ClemensRobbenhaar</id>
       <name>Clemens Robbenhaar</name>
+    </developer>
+    <developer>
+      <id>acotiuga</id>
+      <name>Alex Cotiuga</name>
     </developer>
   </developers>
   <profiles>
