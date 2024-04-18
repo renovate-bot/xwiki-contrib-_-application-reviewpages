@@ -29,7 +29,7 @@
   </parent>
   <groupId>org.xwiki.contrib</groupId>
   <artifactId>application-reviewpages</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>0.4-SNAPSHOT</version>
   <name>Review Pages Application - Parent POM</name>
   <packaging>pom</packaging>
   <properties>
