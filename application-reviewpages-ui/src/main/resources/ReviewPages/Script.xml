@@ -144,7 +144,6 @@ $services.localization.render('ReviewPages.dialog.noReviewFound')
     </property>
     <property>
       <code>#template('colorThemeInit.vm')
-#set ($discard = $services.localization.use('document', 'ReviewPages.Translations'))
 
 define('reviewpages', [], function() {
 ReviewPages = {};
@@ -588,8 +587,7 @@ div.calendar_date_select, .bootstrap_datetimepicker_widget {
       <name>org.xwiki.contrib.applications.ReviewPagesApplication</name>
     </property>
     <property>
-      <parameters>#set ($discard = $services.localization.use('document', 'ReviewPages.Translations'))
-label=$services.localization.render('ReviewPages.application')
+      <parameters>label=$services.localization.render('ReviewPages.application')
 target=ReviewPages.WebHome
 icon=icon:accept</parameters>
     </property>

@@ -31,13 +31,12 @@
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <version>1.1</version>
-  <title>#set ($discard = $services.localization.use('document', 'ReviewPages.Translations'))$services.localization.render('ReviewPages.application')</title>
+  <title>$services.localization.render('ReviewPages.application')</title>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
   <content>{{velocity}}
-#set($discard = $services.localization.use('document', 'ReviewPages.Translations'))
 #set($discard = $xwiki.ssfx.use('uicomponents/widgets/validation/livevalidation.css', true))
 #set($discard = $xwiki.jsx.use("ReviewPages.Script"))
 #set($discard = $xwiki.jsx.use("ReviewPages.AddScript"))
