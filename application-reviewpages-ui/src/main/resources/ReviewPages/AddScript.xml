@@ -20,15 +20,16 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc version="1.4" reference="ReviewPages.AddScript" locale="">
+<xwikidoc version="1.5" reference="ReviewPages.AddScript" locale="">
   <web>ReviewPages</web>
   <name>AddScript</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <parent>ReviewPages.WebHome</parent>
   <creator>xwiki:XWiki.Admin</creator>
+  <parent>ReviewPages.WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
+  <originalMetadataAuthor>xwiki:XWiki.Admin</originalMetadataAuthor>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <version>1.1</version>
   <title>AddScript</title>
@@ -75,6 +76,10 @@ $result.put('errors',$errors)
 $jsontool.serialize($result)
 {{/velocity}}</content>
   <object>
+    <name>ReviewPages.AddScript</name>
+    <number>0</number>
+    <className>XWiki.JavaScriptExtension</className>
+    <guid>0b2fc07f-aa4b-4ce0-84d0-8d432c618afa</guid>
     <class>
       <name>XWiki.JavaScriptExtension</name>
       <customClass/>
@@ -86,22 +91,27 @@ $jsontool.serialize($result)
       <validationScript/>
       <cache>
         <cache>0</cache>
+        <defaultValue>long</defaultValue>
         <disabled>0</disabled>
         <displayType>select</displayType>
+        <freeText>forbidden</freeText>
+        <largeStorage>0</largeStorage>
         <multiSelect>0</multiSelect>
         <name>cache</name>
         <number>5</number>
         <prettyName>Caching policy</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
         <values>long|short|default|forbid</values>
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </cache>
       <code>
+        <contenttype>PureText</contenttype>
         <disabled>0</disabled>
+        <editor>PureText</editor>
         <name>code</name>
         <number>2</number>
         <prettyName>Code</prettyName>
@@ -133,23 +143,21 @@ $jsontool.serialize($result)
         <cache>0</cache>
         <disabled>0</disabled>
         <displayType>select</displayType>
+        <freeText>forbidden</freeText>
+        <largeStorage>0</largeStorage>
         <multiSelect>0</multiSelect>
         <name>use</name>
         <number>3</number>
         <prettyName>Use this extension</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
-        <values>onDemand=On demand|always=Always</values>
+        <values>currentPage|onDemand|always</values>
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </use>
     </class>
-    <name>ReviewPages.AddScript</name>
-    <number>0</number>
-    <className>XWiki.JavaScriptExtension</className>
-    <guid>0b2fc07f-aa4b-4ce0-84d0-8d432c618afa</guid>
     <property>
       <cache>forbid</cache>
     </property>
@@ -213,6 +221,10 @@ $jsontool.serialize($result)
     </property>
   </object>
   <object>
+    <name>ReviewPages.AddScript</name>
+    <number>0</number>
+    <className>XWiki.RequiredRightClass</className>
+    <guid>6852de1d-b12e-4e55-94c2-11509c94608b</guid>
     <class>
       <name>XWiki.RequiredRightClass</name>
       <customClass/>
@@ -243,10 +255,6 @@ $jsontool.serialize($result)
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </level>
     </class>
-    <name>ReviewPages.AddScript</name>
-    <number>0</number>
-    <className>XWiki.RequiredRightClass</className>
-    <guid>6852de1d-b12e-4e55-94c2-11509c94608b</guid>
     <property>
       <level>programming</level>
     </property>
