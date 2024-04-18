@@ -20,7 +20,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc version="1.4" reference="ReviewPages.Translations" locale="">
+<xwikidoc version="1.5" reference="ReviewPages.Translations" locale="">
   <web>ReviewPages</web>
   <name>Translations</name>
   <language/>
@@ -29,6 +29,7 @@
   <creator>xwiki:XWiki.Admin</creator>
   <parent>ReviewPages.WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
+  <originalMetadataAuthor>xwiki:XWiki.Admin</originalMetadataAuthor>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <version>1.1</version>
   <title>Translations</title>
@@ -82,7 +83,14 @@ ReviewPages.AddPage.saveVersionSummary=Added to Review
 
 # messages from removing pages
 ReviewPages.RemovePage.page.error.alreadyRemoved=This document is not under review
-ReviewPages.RemovePage.saveVersionSummary=Removed from Review</content>
+ReviewPages.RemovePage.saveVersionSummary=Removed from Review
+
+# review date
+ReviewPages.event.reviewDateReached.description=The review date of a document has been reached
+
+# notifications
+notifications.events.org.xwiki.contrib.reviewpages.notifications.events.DocumentReviewDateReachedTargetableEvent.description.by.1user=The review date of the document has been reached 
+            </content>
   <object>
     <name>ReviewPages.Translations</name>
     <number>0</number>
@@ -101,13 +109,15 @@ ReviewPages.RemovePage.saveVersionSummary=Removed from Review</content>
         <cache>0</cache>
         <disabled>0</disabled>
         <displayType>select</displayType>
+        <freeText>forbidden</freeText>
+        <largeStorage>0</largeStorage>
         <multiSelect>0</multiSelect>
         <name>scope</name>
         <number>1</number>
         <prettyName>Scope</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
         <values>GLOBAL|WIKI|USER|ON_DEMAND</values>

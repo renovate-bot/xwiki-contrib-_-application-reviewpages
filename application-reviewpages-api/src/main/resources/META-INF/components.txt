@@ -1,0 +1,2 @@
+org.xwiki.contrib.reviewpages.internal.DefaultReviewPagesManager
+org.xwiki.contrib.reviewpages.internal.descriptors.DocumentReviewDateReachedEventDescriptor

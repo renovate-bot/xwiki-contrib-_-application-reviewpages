@@ -25,42 +25,26 @@
   <parent>
     <groupId>org.xwiki.contrib</groupId>
     <artifactId>application-reviewpages</artifactId>
-    <version>0.4-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>application-reviewpages-ui</artifactId>
-  <name>Review Pages Application - UI</name>
-  <description>This application allows to maintain list of wiki pages that needs to be reviewed from time to time, together with a date for the next review for each page.</description>
-  <packaging>xar</packaging>
-  <properties>
-    <!-- Don't run CLIRR here since there's no Java code. -->
-    <xwiki.clirr.skip>true</xwiki.clirr.skip>
-    <!-- Name to display by the Extension Manager -->
-    <xwiki.extension.name>Review Pages Application</xwiki.extension.name>
-  </properties>
+  <artifactId>application-reviewpages-api</artifactId>
+  <name>Review Pages Application - API</name>
+  <packaging>jar</packaging>
   <dependencies>
     <dependency>
-      <groupId>org.xwiki.contrib</groupId>
-      <artifactId>application-reviewpages-api</artifactId>
-      <version>${project.version}</version>
-      <scope>runtime</scope>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-oldcore</artifactId>
+      <version>${platform.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.commons</groupId>
+      <artifactId>xwiki-commons-component-api</artifactId>
+      <version>${commons.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-scheduler-api</artifactId>
+      <version>${platform.version}</version>
     </dependency>
   </dependencies>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.xwiki.commons</groupId>
-        <artifactId>xwiki-commons-tool-xar-plugin</artifactId>
-        <configuration>
-          <skip>true</skip>
-          <contentPages>.*/ReviewPages/ExampleDocument\.xml</contentPages>
-          <entries>
-            <entry>
-              <document>ReviewPages.ExampleDocument</document>
-              <type>demo</type>
-            </entry>
-          </entries>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 </project>

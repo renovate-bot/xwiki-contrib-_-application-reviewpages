@@ -29,7 +29,7 @@
   </parent>
   <groupId>org.xwiki.contrib</groupId>
   <artifactId>application-reviewpages</artifactId>
-  <version>0.4-SNAPSHOT</version>
+  <version>1.0-SNAPSHOT</version>
   <name>Review Pages Application - Parent POM</name>
   <packaging>pom</packaging>
   <properties>
@@ -38,6 +38,7 @@
   </properties>
   <modules>
     <module>application-reviewpages-ui</module>
+    <module>application-reviewpages-api</module>
   </modules>
   <scm>
     <connection>scm:git:git://github.com/xwiki-contrib/application-reviewpages.git</connection>
