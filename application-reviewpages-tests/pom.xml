@@ -25,7 +25,7 @@
   <parent>
     <groupId>org.xwiki.contrib</groupId>
     <artifactId>application-reviewpages</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.0.1</version>
   </parent>
   <artifactId>application-reviewpages-tests</artifactId>
   <name>Review Pages Application - Functional Tests</name>
