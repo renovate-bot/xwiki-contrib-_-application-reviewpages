@@ -46,7 +46,6 @@
     <url>https://github.com/xwiki-contrib/application-reviewpages/tree/master/</url>
     <tag>HEAD</tag>
   </scm>
-  <url>https://extensions.xwiki.org/xwiki/bin/view/Extension/Review+Pages+Application</url>
   <developers>
     <developer>
       <id>ClemensRobbenhaar</id>
